@@ -1,3 +1,4 @@
+from settings import ROOT_DIR
 from .base_page import BasePage
 from framework import Page
 
@@ -38,3 +39,7 @@ class InventoryPage(BasePage):
     @property
     def remove_from_cart_btn(self):
         return self.page.locator(f'#remove-sauce-labs-{self.formatted_item_name}')
+
+    def record(self):
+        self.page.close()
+        self.page.video.save_as(f'{ROOT_DIR}/videos')

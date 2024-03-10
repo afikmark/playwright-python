@@ -1,4 +1,5 @@
 from playwright.sync_api import sync_playwright, Browser
+from settings import ROOT_DIR
 
 
 class BrowserType:
@@ -19,7 +20,8 @@ def _create_browser(browser_type: str, **kwargs) -> Browser:
 class WebBrowser:
     def __init__(self, browser_type: str, **kwargs):
         self.browser = _create_browser(browser_type, **kwargs)
-        self.page = self.browser.new_context().new_page()
+        self.page = self.browser.new_context(record_video_dir=f"{ROOT_DIR}/videos").new_page()
 
     def close_browser(self) -> None:
         self.browser.close()
+
