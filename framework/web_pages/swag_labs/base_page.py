@@ -43,7 +43,3 @@ class BasePage:
         Takes element screenshot
         """
         element_locator.screenshot(path=path)
-
-    # def take_video(self) -> None:
-    #     """ records video """
-    #     self.page.video.path()

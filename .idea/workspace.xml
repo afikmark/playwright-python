@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="added record &amp; screenshots capabilities" />
+    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="removed WebBrowser class">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/web_pages/swag_labs/base_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/framework/web_pages/swag_labs/base_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/login/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/login/test_login.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +36,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Python tests.Python tests for test_login.test_login.executor": "Run",
+    "Python tests.Python tests for test_login.test_login.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -100,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710088312202</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="removed WebBrowser class">
+      <option name="closed" value="true" />
+      <created>1710089402529</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710089402529</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,7 +130,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="playwright-python" />
     <MESSAGE value="added record &amp; screenshots capabilities" />
-    <option name="LAST_COMMIT_MESSAGE" value="added record &amp; screenshots capabilities" />
+    <MESSAGE value="removed WebBrowser class" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed WebBrowser class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -126,6 +140,11 @@
           <url>file://$PROJECT_DIR$/.venv/Lib/site-packages/playwright/_impl/_video.py</url>
           <line>57</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/conftest.py</url>
+          <line>35</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
