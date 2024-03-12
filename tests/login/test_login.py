@@ -16,6 +16,7 @@ def test_login(swag_ui, app_config, reporter):
     assert inventory_page.is_in_page, 'not in inventory page'
 
 
+@pytest.skip("This test is for testing the video and screenshot capture on failure")
 def test_login_fail(swag_ui, app_config, reporter):
     login_page = swag_ui.login_page
     login_page.open()
