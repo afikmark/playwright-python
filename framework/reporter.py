@@ -13,7 +13,7 @@ class Reporter:
     def attach_img(self, screenshot, *args, **kwargs):
         raise NotImplementedError("Please implement attach_img function")
 
-    def attach_file(self, file='', name=''):
+    def attach_file(self, file, name, *args, **kwargs):
         raise NotImplementedError("Please implement attach_file function")
 
 
@@ -24,4 +24,7 @@ class AllureReporter(Reporter):
             pass
 
     def attach_img(self, screenshot, *args, **kwargs):
-        allure.attach(screenshot, attachment_type=AttachmentType.PNG, name="Screenshot", **kwargs)
+        allure.attach.file(screenshot, attachment_type=AttachmentType.PNG, name="Screenshot", **kwargs)
+
+    def attach_file(self, file, name, *args, **kwargs):
+        allure.attach.file(file, name="attachment", attachment_type=AttachmentType.WEBM, **kwargs)

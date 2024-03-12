@@ -1,6 +1,8 @@
+import time
+
 import pytest
 from playwright.sync_api import Page, sync_playwright
-from common.utils import ImageFileType
+from common.utils import ImageFileType, VideoFileType
 from framework.web_browser import BrowserType
 from framework.web_pages.swag_labs.swag_labs import SwagLabs
 from framework.logger import get_logger
@@ -35,12 +37,26 @@ def test_capture_path(request) -> tuple:
 
 
 @pytest.fixture(scope="function", autouse=True)
-def screenshot_on_failure(request, page: Page, test_capture_path, reporter):
+def attach_evidence(request, page: Page, test_capture_path, reporter):
     yield  # Allow the test to run
     if request.node.session.testsfailed > 0:
         screenshot_path = fr'{test_capture_path[1]}\{request.node.name}.{ImageFileType.PNG}'
-        page.screenshot(path=screenshot_path, full_page=True)
-        reporter.attach_img(screenshot=screenshot_path)
+        video_name = os.listdir(test_capture_path[0])[-1]
+        video_path = fr'{test_capture_path[0]}\{video_name}'
+        time.sleep(1)  # wait for test run to complete
+        try:
+            page.screenshot(path=screenshot_path, full_page=True)
+            reporter.attach_img(screenshot=screenshot_path)
+            page.close()
+            time.sleep(2)  # wait for page to close
+            reporter.attach_file(file=video_path, name="Video")
+        except FileNotFoundError:
+            logger.info("No screenshot or videos to remove")
+        except PermissionError as e:
+            logger.error(e)
+        finally:
+            os.remove(video_path)
+            os.remove(screenshot_path)
 
 
 @pytest.fixture(scope="function")
@@ -51,7 +67,8 @@ def page(browser_type, test_capture_path, launch_options):
                 browser = playwright.firefox.launch(**launch_options)
             case _:
                 browser = playwright.chromium.launch(**launch_options)
-        context = browser.new_context(record_video_dir=test_capture_path[0])
+        context = browser.new_context(
+            record_video_dir=test_capture_path[0])  # todo: add video capture options to configuration file
         yield context.new_page()
 
 
