@@ -40,13 +40,13 @@ def screenshot_on_failure(request, page: Page, test_capture_path):
 
 
 @pytest.fixture(scope="function")
-def page(browser_type, test_capture_path, **kwargs):
+def page(browser_type, test_capture_path, launch_options):
     with sync_playwright() as playwright:
         match browser_type:
             case BrowserType.FIREFOX:
-                browser = playwright.firefox.launch(**kwargs)
+                browser = playwright.firefox.launch(**launch_options)
             case _:
-                browser = playwright.chromium.launch(headless=False)
+                browser = playwright.chromium.launch(**launch_options)
         context = browser.new_context(record_video_dir=test_capture_path[0])
         yield context.new_page()
 
@@ -64,6 +64,11 @@ def env(request):
 @pytest.fixture(scope='session')
 def browser_type(request):
     return request.config.getoption("--browser_type")
+
+
+@pytest.fixture(scope="session")
+def launch_options(app_config):
+    return app_config.launch_options
 
 
 @pytest.fixture(scope='session')

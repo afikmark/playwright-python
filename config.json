@@ -14,5 +14,8 @@
   "browser": {
     "chrome": "chrome",
     "firefox": "firefox"
+  },
+  "launch_options": {
+    "headless": "false"
   }
 }

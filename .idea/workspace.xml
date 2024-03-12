@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="removed WebBrowser class">
+    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="added record and take screenshot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/web_pages/swag_labs/base_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/framework/web_pages/swag_labs/base_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/login/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/login/test_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/login/test_capture/5a3f78a353b7bfb4c1789070a98f9b5e.webm" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710089402529</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added record and take screenshot">
+      <option name="closed" value="true" />
+      <created>1710171832059</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710171832059</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,7 +140,8 @@
     <MESSAGE value="playwright-python" />
     <MESSAGE value="added record &amp; screenshots capabilities" />
     <MESSAGE value="removed WebBrowser class" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed WebBrowser class" />
+    <MESSAGE value="added record and take screenshot" />
+    <option name="LAST_COMMIT_MESSAGE" value="added record and take screenshot" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -145,6 +155,26 @@
           <url>file://$PROJECT_DIR$/tests/conftest.py</url>
           <line>35</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/conftest.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/conftest.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/config.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/config.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
