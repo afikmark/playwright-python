@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="launch options from configurations">
-      <change afterPath="$PROJECT_DIR$/framework/reporter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/inventory/test_capture/20bb2b1518d07445c05067a7f5f314b7.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/login/test_capture/5a3f78a353b7bfb4c1789070a98f9b5e.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/login/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/login/test_login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/videos/b58e5fa39ffdab6b11cb456c8807565d.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/videos/d015185656895cc93a5e08bb2293ed57.webm" beforeDir="false" />
-    </list>
+    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="removed videos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,7 +141,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710228068940</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added allure reporter">
+      <option name="closed" value="true" />
+      <created>1710230295897</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710230295897</updated>
+    </task>
+    <task id="LOCAL-00008" summary="removed videos">
+      <option name="closed" value="true" />
+      <created>1710243037390</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710243037390</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,7 +177,9 @@
     <MESSAGE value="removed WebBrowser class" />
     <MESSAGE value="added record and take screenshot" />
     <MESSAGE value="launch options from configurations" />
-    <option name="LAST_COMMIT_MESSAGE" value="launch options from configurations" />
+    <MESSAGE value="added allure reporter" />
+    <MESSAGE value="removed videos" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed videos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
