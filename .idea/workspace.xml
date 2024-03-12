@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="added record and take screenshot">
+    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="launch options from configurations">
+      <change afterPath="$PROJECT_DIR$/framework/reporter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/inventory/test_capture/20bb2b1518d07445c05067a7f5f314b7.webm" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/login/test_capture/5a3f78a353b7bfb4c1789070a98f9b5e.webm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/login/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/login/test_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/videos/b58e5fa39ffdab6b11cb456c8807565d.webm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/videos/d015185656895cc93a5e08bb2293ed57.webm" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,13 +42,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python tests.Python tests for test_login.test_login.executor": "Debug",
+    "Python tests.Python tests for test_login.test_login_fail.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "settings.editor.selected.configurable": "advanced.settings"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.Python tests for test_login.test_login_fail">
     <configuration name="Python tests for test_login.test_login" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="playwright-python" />
       <option name="ENV_FILES" value="" />
@@ -60,8 +65,24 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_login.test_login_fail" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="playwright-python" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/login" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_login.test_login_fail&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_login.test_login_fail" />
         <item itemvalue="Python tests.Python tests for test_login.test_login" />
       </list>
     </recent_temporary>
@@ -122,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710171832059</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="launch options from configurations">
+      <option name="closed" value="true" />
+      <created>1710228068940</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710228068940</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,7 +170,8 @@
     <MESSAGE value="added record &amp; screenshots capabilities" />
     <MESSAGE value="removed WebBrowser class" />
     <MESSAGE value="added record and take screenshot" />
-    <option name="LAST_COMMIT_MESSAGE" value="added record and take screenshot" />
+    <MESSAGE value="launch options from configurations" />
+    <option name="LAST_COMMIT_MESSAGE" value="launch options from configurations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -152,29 +182,14 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tests/conftest.py</url>
-          <line>35</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/framework/reporter.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tests/conftest.py</url>
-          <line>43</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tests/conftest.py</url>
-          <line>70</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tests/config.py</url>
-          <line>12</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tests/config.py</url>
-          <line>22</line>
-          <option name="timeStamp" value="17" />
+          <line>40</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

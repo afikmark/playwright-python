@@ -1,12 +1,10 @@
 import pytest
 from playwright.sync_api import Page, sync_playwright
-
 from common.utils import ImageFileType
 from framework.web_browser import BrowserType
-from framework.web_pages import BasePage
 from framework.web_pages.swag_labs.swag_labs import SwagLabs
 from framework.logger import get_logger
-from settings import ROOT_DIR
+from framework.reporter import AllureReporter
 from tests.config import Config
 import json
 import os
@@ -16,12 +14,17 @@ logger = get_logger()
 
 @pytest.hookimpl
 def pytest_runtest_setup(item):
-    test_capture_path = f'{item.path.parent}/test_capture'
-    test_screenshot_capture_path = f'{item.path.parent}/test_capture_screenshot'
+    test_capture_path = fr'{item.path.parent}\test_capture'
+    test_screenshot_capture_path = fr'{item.path.parent}\test_capture_screenshot'
     os.makedirs(test_capture_path, exist_ok=True)
     os.makedirs(test_screenshot_capture_path, exist_ok=True)
     item.config.cache.set("test_capture_path", test_capture_path)
     item.config.cache.set("test_capture_screenshot", test_screenshot_capture_path)
+
+
+@pytest.fixture
+def reporter():
+    return AllureReporter()
 
 
 @pytest.fixture(scope="function")
@@ -32,11 +35,12 @@ def test_capture_path(request) -> tuple:
 
 
 @pytest.fixture(scope="function", autouse=True)
-def screenshot_on_failure(request, page: Page, test_capture_path):
+def screenshot_on_failure(request, page: Page, test_capture_path, reporter):
     yield  # Allow the test to run
     if request.node.session.testsfailed > 0:
-        screenshot_path = f'{test_capture_path[1]}/{request.node.name}.{ImageFileType.PNG}'
+        screenshot_path = fr'{test_capture_path[1]}\{request.node.name}.{ImageFileType.PNG}'
         page.screenshot(path=screenshot_path, full_page=True)
+        reporter.attach_img(screenshot=screenshot_path)
 
 
 @pytest.fixture(scope="function")
@@ -87,6 +91,11 @@ def pytest_addoption(parser):
                      action="store",
                      help="Browser type for UI testing",
                      default='chrome')
+
+    parser.addoption("--allurdir",
+                     action="store",
+                     help="allure results directory",
+                     default="allure-results")
 
 
 def pytest_collection_modifyitems(items):
