@@ -1,8 +1,8 @@
 import time
-
+import shutil
 import pytest
 from playwright.sync_api import Page, sync_playwright
-from common.utils import ImageFileType, VideoFileType
+from common.utils import ImageFileType, retry_on_false
 from framework.web_browser import BrowserType
 from framework.web_pages.swag_labs.swag_labs import SwagLabs
 from framework.logger import get_logger
@@ -39,24 +39,31 @@ def test_capture_path(request) -> tuple:
 @pytest.fixture(scope="function", autouse=True)
 def attach_evidence(request, page: Page, test_capture_path, reporter):
     yield  # Allow the test to run
+    screenshot_path = fr'{test_capture_path[1]}\{request.node.name}.{ImageFileType.PNG}'
+    video_name = os.listdir(test_capture_path[0])[-1]
+    video_path = fr'{test_capture_path[0]}\{video_name}'
     if request.node.session.testsfailed > 0:
-        screenshot_path = fr'{test_capture_path[1]}\{request.node.name}.{ImageFileType.PNG}'
-        video_name = os.listdir(test_capture_path[0])[-1]
-        video_path = fr'{test_capture_path[0]}\{video_name}'
-        time.sleep(1)  # wait for test run to complete
         try:
             page.screenshot(path=screenshot_path, full_page=True)
             reporter.attach_img(screenshot=screenshot_path)
-            page.close()
-            time.sleep(2)  # wait for page to close
+            page.close(reason="capture video")
+            wait_for_page_to_close(page)  # wait for page to close
             reporter.attach_file(file=video_path, name="Video")
         except FileNotFoundError:
-            logger.info("No screenshot or videos to remove")
+            logger.info("No screenshot or videos to attach")
         except PermissionError as e:
             logger.error(e)
-        finally:
-            os.remove(video_path)
-            os.remove(screenshot_path)
+    try:
+        shutil.rmtree(test_capture_path[0])
+        shutil.rmtree(test_capture_path[1])
+    except Exception as e:
+        logger.error(e)
+
+
+@retry_on_false()
+def wait_for_page_to_close(page: Page) -> bool:
+    time.sleep(5)
+    return page.is_closed()
 
 
 @pytest.fixture(scope="function")

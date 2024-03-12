@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="removed videos">
+    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="attach screenshot and video on failure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/reporter.py" beforeDir="false" afterPath="$PROJECT_DIR$/framework/reporter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -184,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710243080244</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="attach screenshot and video on failure">
+      <option name="closed" value="true" />
+      <created>1710246403449</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1710246403449</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,7 +213,8 @@
     <MESSAGE value="launch options from configurations" />
     <MESSAGE value="added allure reporter" />
     <MESSAGE value="removed videos" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed videos" />
+    <MESSAGE value="attach screenshot and video on failure" />
+    <option name="LAST_COMMIT_MESSAGE" value="attach screenshot and video on failure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -217,14 +225,9 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/framework/reporter.py</url>
-          <line>29</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tests/conftest.py</url>
-          <line>48</line>
-          <option name="timeStamp" value="26" />
+          <line>65</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
