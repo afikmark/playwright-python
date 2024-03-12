@@ -2,6 +2,7 @@ from common.utils import ImageFileType
 from framework import Page, Frame, Locator
 from settings import ROOT_DIR
 
+# todo: Move BasePage outside of swag_labs folder to support more apps
 
 class BasePage:
 
