@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="attach screenshot and video on failure">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
-    </list>
+    <list default="true" id="f131da5d-c7c5-4a07-b1e9-858ff9bf63db" name="Changes" comment="remove test capture results after allure attach" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -191,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710246403449</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="remove test capture results after allure attach">
+      <option name="closed" value="true" />
+      <created>1710249498275</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1710249498275</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,7 +218,8 @@
     <MESSAGE value="added allure reporter" />
     <MESSAGE value="removed videos" />
     <MESSAGE value="attach screenshot and video on failure" />
-    <option name="LAST_COMMIT_MESSAGE" value="attach screenshot and video on failure" />
+    <MESSAGE value="remove test capture results after allure attach" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove test capture results after allure attach" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
