@@ -16,11 +16,11 @@ def test_login(swag_ui, app_config, reporter):
     assert inventory_page.is_in_page, 'not in inventory page'
 
 
-@pytest.mark.skip("This test is for testing the video and screenshot capture on failure")
+# @pytest.mark.skip("This test is for testing the video and screenshot capture on failure")
 def test_login_fail(swag_ui, app_config, reporter):
     login_page = swag_ui.login_page
     login_page.open()
     reporter.step('Step', 'Login to SwagLabs')
-    login_page.login('', '')
+    login_page.login(user_name='wrong', password='password')
     inventory_page = swag_ui.inventory_page
     assert inventory_page.is_in_page, 'not in inventory page'

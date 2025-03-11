@@ -16,6 +16,7 @@
     "firefox": "firefox"
   },
   "launch_options": {
-    "headless": "false"
+    "headless": "false",
+    "slow_mo": 500
   }
 }
