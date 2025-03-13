@@ -11,10 +11,6 @@
      "default_password": "secret_sauce"
 
   },
-  "browser": {
-    "chrome": "chrome",
-    "firefox": "firefox"
-  },
   "launch_options": {
     "headless": "false",
     "slow_mo": 500

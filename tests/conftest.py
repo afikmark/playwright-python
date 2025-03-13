@@ -3,11 +3,14 @@ import allure
 import pytest
 from allure_commons.types import AttachmentType
 from playwright.sync_api import Page, sync_playwright
+from pytest_playwright.pytest_playwright import output_path, launch_browser
+
 from common.utils import ImageFileType, retry_on_false
 from framework.web_browser import BrowserType
 from framework.web_pages.swag_labs.swag_labs import SwagLabs
 from framework.logger import get_logger
 from framework.reporter import AllureReporter
+from settings import ROOT_DIR
 from tests.config import Config
 import json
 import os
@@ -28,36 +31,34 @@ def pytest_runtest_teardown(item, nextitem):
 
     try:
         # Get the output directory for the test
-        artifacts_dir = item.path.parent
-        if artifacts_dir:
-            artifacts_dir_path = pathlib.Path(artifacts_dir).joinpath('videos')
-
-
-            if artifacts_dir_path.is_dir():
-                for file in artifacts_dir_path.iterdir():
-                    # Find the video file and attach it to Allure Report
-                    if file.is_file() and file.suffix == ".webm":
-                        allure.attach.file(
-                            file,
-                            name=file.name,
-                            attachment_type=allure.attachment_type.WEBM,
-                        )
+        node_id_parts = item.nodeid.split("/")
+        file_path = f'{node_id_parts[0]}-{node_id_parts[1]}'
+        test_name_parts = node_id_parts[2].split("::")
+        test_name = f'{test_name_parts[0].replace(".", "-")}-{test_name_parts[1]}'
+        artifacts_dir = pathlib.Path(ROOT_DIR, 'tests/test-results', f'{file_path}-{test_name.replace('_', '-')}')
+        if artifacts_dir.is_dir():
+            for file in artifacts_dir.iterdir():
+                # Find the video/PNG file and attach it to Allure Report
+                if file.is_file() and file.suffix == ".webm":
+                    allure.attach.file(
+                        file,
+                        name=file.name,
+                        attachment_type=allure.attachment_type.WEBM,
+                    )
+                elif file.suffix == ".png":
+                    allure.attach.file(
+                        file,
+                        name=file.name,
+                        attachment_type=allure.attachment_type.PNG)
 
     except Exception as e:
         print(f"Error attaching video: {e}")
 
 
-
 @pytest.fixture(scope="function")
-def page(browser_type, launch_options):
-    with sync_playwright() as playwright:
-        match browser_type:
-            case BrowserType.FIREFOX:
-                browser = playwright.firefox.launch(**launch_options)
-            case _:
-                browser = playwright.chromium.launch(**launch_options)
-        context = browser.new_context(record_video_dir='videos')
-        yield context.new_page()
+def page(page: Page):
+    page.goto("https://www.saucedemo.com/")
+    yield page
 
 
 @pytest.fixture(scope="function")
@@ -68,16 +69,6 @@ def swag_ui(page: Page, app_config):
 @pytest.fixture(scope='session')
 def env(request):
     return request.config.getoption("--env")
-
-
-@pytest.fixture(scope='session')
-def browser_type(request):
-    return request.config.getoption("--browser_type")
-
-
-@pytest.fixture(scope="session")
-def launch_options(app_config):
-    return app_config.launch_options
 
 
 @pytest.fixture(scope='session')
@@ -92,15 +83,6 @@ def pytest_addoption(parser):
                      help="Environment to run tests",
                      default="qa"
                      )
-    parser.addoption("--browser_type",
-                     action="store",
-                     help="Browser type for UI testing",
-                     default='chrome')
-
-    parser.addoption("--allurdir",
-                     action="store",
-                     help="allure results directory",
-                     default="allure-results")
 
 
 def pytest_collection_modifyitems(items):
