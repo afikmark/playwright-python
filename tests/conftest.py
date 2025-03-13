@@ -1,12 +1,7 @@
 import pathlib
 import allure
 import pytest
-from allure_commons.types import AttachmentType
-from playwright.sync_api import Page, sync_playwright
-from pytest_playwright.pytest_playwright import output_path, launch_browser
-
-from common.utils import ImageFileType, retry_on_false
-from framework.web_browser import BrowserType
+from playwright.sync_api import Page
 from framework.web_pages.swag_labs.swag_labs import SwagLabs
 from framework.logger import get_logger
 from framework.reporter import AllureReporter
