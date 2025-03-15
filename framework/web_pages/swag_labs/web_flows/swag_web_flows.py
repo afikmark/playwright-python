@@ -1,6 +1,5 @@
 from ..login import LoginPage
 
-
 class SwagFlows:
 
     @staticmethod

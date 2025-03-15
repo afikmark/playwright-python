@@ -8,6 +8,9 @@ class SwagLabs:
 
     def __init__(self, page: Page, base_url: str):
         self.url = base_url
+        self.page = page
         self.login_page = LoginPage(page, self.url)
         self.inventory_page = InventoryPage(page, self.url)
         self.flows = SwagFlows()
+        # --- header --- #
+        self.cart_container = self.page.locator('#shopping_cart_container')
