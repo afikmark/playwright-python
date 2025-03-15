@@ -11,7 +11,7 @@ def test_add_to_cart_button(swag_ui, app_config):
                                  user_name=app_config.user_name,
                                  password=app_config.user_password)
     inventory_page = swag_ui.inventory_page
-    inventory_page.item = inventory_page.inventory_items.BIKE_LIGHT
-    inventory_page.add_to_cart_button.click()
-    # assert tha button changed to "remove" after clicking add to cart
-    expect(inventory_page.remove_from_cart_btn).to_have_text("Remove")
+    inventory_page.inventory_items.first.get_by_role('button', name='ADD TO CART').click()
+    inventory_page.inventory_items.first.get_by_role('button').text_content()
+    expect(inventory_page.inventory_items.first.get_by_role('button')).to_have_text('Remove')
+
