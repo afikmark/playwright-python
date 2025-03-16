@@ -8,7 +8,6 @@ from framework.reporter import AllureReporter
 from settings import ROOT_DIR
 from tests.config import Config
 import json
-import os
 
 logger = get_logger()
 

@@ -1,4 +1,3 @@
-from settings import ROOT_DIR
 from .base_page import BasePage
 from framework import Page
 
