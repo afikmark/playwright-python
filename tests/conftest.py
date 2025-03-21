@@ -7,7 +7,6 @@ from framework.logger import get_logger
 from framework.reporter import AllureReporter
 from settings import ROOT_DIR
 from tests.config import Config
-import json
 
 logger = get_logger()
 
@@ -17,10 +16,8 @@ def reporter():
     return AllureReporter()
 
 
-# Write a hook that creates a capture folder if the test fails
-
 @pytest.hookimpl(hookwrapper=True)
-def pytest_runtest_teardown(item, nextitem):
+def pytest_runtest_teardown(item):
     yield
 
     try:
