@@ -29,7 +29,7 @@ def pytest_runtest_teardown(item, nextitem):
         file_path = f'{node_id_parts[0]}-{node_id_parts[1]}'
         test_name_parts = node_id_parts[2].split("::")
         test_name = f'{test_name_parts[0].replace(".", "-")}-{test_name_parts[1]}'
-        artifacts_dir = pathlib.Path(ROOT_DIR, 'tests/test-results', f'{file_path}-{test_name.replace('_', '-')}')
+        artifacts_dir = pathlib.Path(ROOT_DIR, 'tests/test-results', f"{file_path}-{test_name.replace('_', '-')}")
         if artifacts_dir.is_dir():
             for file in artifacts_dir.iterdir():
                 # Find the video/PNG file and attach it to Allure Report
