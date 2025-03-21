@@ -2,7 +2,10 @@ import json
 import os
 
 from settings import ROOT_DIR
-from local_config import PASSWORD
+try:
+    from local_config import PASSWORD
+except ImportError:
+    pass
 
 
 class Config:
