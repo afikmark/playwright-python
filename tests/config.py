@@ -1,11 +1,7 @@
 import json
 import os
-
 from settings import ROOT_DIR
-try:
-    from local_config import PASSWORD
-except ImportError:
-    PASSWORD = os.environ.get("PASSWORD")
+PASSWORD = os.environ["PASSWORD"]
 
 
 class Config:
