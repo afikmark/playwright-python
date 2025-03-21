@@ -9,4 +9,4 @@ env/
 # pytest
 .cache/
 .pytest_cache/
-.local_config.py
+/local_config.py
