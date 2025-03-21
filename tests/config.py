@@ -13,4 +13,4 @@ class Config:
             configs = json.load(config)
         self.base_url = configs['env'][env]
         self.user_name = configs['user_info']["default_name"]
-        self.password = os.environ.get("PASSWORD", PASSWORD)
+        self.user_password = os.environ.get("PASSWORD", PASSWORD)
