@@ -3,6 +3,7 @@ import allure
 from tests import expect
 
 @allure.severity(allure.severity_level.CRITICAL)
+@pytest.mark.swag_ui
 @pytest.mark.parametrize('user_name, password', [('standard_user', 'secret_sauce'),
                                                  pytest.param('locked_out_user', 'secret_sauce', marks=pytest.mark.xfail),
                                                  ])

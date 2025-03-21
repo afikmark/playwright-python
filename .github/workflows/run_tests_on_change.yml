@@ -31,5 +31,6 @@ jobs:
     - name: Test with pytest
       env:
         PASSWORD: ${{ secrets.PASSWORD }}
+        PET_STORE_API_TOKEN: ${{ secrets.PET_STORE_API_TOKEN }}
       run: |
         pytest

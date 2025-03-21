@@ -1,10 +1,4 @@
 {
-  "env":
-    {
-      "dev": "https://www.saucedemo.com/",
-      "qa": "https://www.saucedemo.com/",
-      "prd": "https://saucelabs.com/"
-    },
   "user_info":
   {
      "default_name": "standard_user"

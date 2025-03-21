@@ -3,19 +3,11 @@ from framework import Page, Frame, Locator
 from settings import ROOT_DIR
 
 
-# todo: Move BasePage outside of swag_labs folder to support more apps
-
 class BasePage:
 
     def __init__(self, page: Page, base_url: str):
         self.page = page
         self.url = base_url
-
-    @property
-    def is_in_page(self) -> bool:
-        """ Validates the browser is on the current page """
-        current_url = self.page.url
-        return current_url == self.url
 
     def open(self) -> None:
         """ Opens the page URL """

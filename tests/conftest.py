@@ -1,7 +1,7 @@
 import pathlib
 import allure
 import pytest
-from playwright.sync_api import Page
+from playwright.sync_api import Page, Playwright
 from framework.web_pages.swag_labs.swag_labs import SwagLabs
 from framework.logger import get_logger
 from framework.reporter import AllureReporter
@@ -47,7 +47,7 @@ def pytest_runtest_teardown(item):
 
 
 @pytest.fixture(scope="function")
-def page(page: Page, request):
+def page(page: Page, request, app_config):
     page.goto("https://www.saucedemo.com/")
     def fin():
         print("Page closed")
@@ -56,24 +56,26 @@ def page(page: Page, request):
 
 
 @pytest.fixture(scope="function")
-def swag_ui(page: Page, app_config):
-    return SwagLabs(page, app_config.base_url)
+def swag_ui(page: Page):
+    return SwagLabs(page, "https://www.saucedemo.com/")
 
 
-@pytest.fixture(scope='session')
-def env(request):
-    return request.config.getoption("--env")
-
-
-@pytest.fixture(scope='session')
-def app_config(env):
-    cfg = Config(env)
+@pytest.fixture(scope='function')
+def app_config():
+    cfg = Config()
     return cfg
 
+@pytest.fixture(scope="function")
+def api_request_context(
+    playwright: Playwright,
+    app_config,
+    request):
+    headers = {
+        "Authorization": f"token {app_config.pet_store_api_token}",
+    }
+    request_context = playwright.request.new_context(
+        base_url="https://petstore.swagger.io/v2/", extra_http_headers=headers
+    )
+    yield request_context
+    request_context.dispose()
 
-def pytest_addoption(parser):
-    parser.addoption("--env",
-                     action="store",
-                     help="Environment to run tests",
-                     default="qa"
-                     )
