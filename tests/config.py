@@ -5,7 +5,7 @@ from settings import ROOT_DIR
 try:
     from local_config import PASSWORD
 except ImportError:
-    pass
+    PASSWORD = os.environ.get("PASSWORD")
 
 
 class Config:
@@ -16,4 +16,4 @@ class Config:
             configs = json.load(config)
         self.base_url = configs['env'][env]
         self.user_name = configs['user_info']["default_name"]
-        self.user_password = os.environ.get("PASSWORD", PASSWORD)
+        self.user_password = PASSWORD
