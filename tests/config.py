@@ -1,6 +1,8 @@
 import json
+import os
 
 from settings import ROOT_DIR
+from local_config import PASSWORD
 
 
 class Config:
@@ -11,4 +13,4 @@ class Config:
             configs = json.load(config)
         self.base_url = configs['env'][env]
         self.user_name = configs['user_info']["default_name"]
-        self.user_password = configs['user_info']["default_password"]
+        self.password = os.environ.get("PASSWORD", PASSWORD)
