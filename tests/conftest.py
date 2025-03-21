@@ -50,9 +50,12 @@ def pytest_runtest_teardown(item, nextitem):
 
 
 @pytest.fixture(scope="function")
-def page(page: Page):
+def page(page: Page, request):
     page.goto("https://www.saucedemo.com/")
-    yield page
+    def fin():
+        print("Page closed")
+    request.addfinalizer(fin)
+    return page
 
 
 @pytest.fixture(scope="function")
@@ -77,11 +80,3 @@ def pytest_addoption(parser):
                      help="Environment to run tests",
                      default="qa"
                      )
-
-
-def pytest_collection_modifyitems(items):
-    test_info = {
-        item.nodeid.split("::")[1]: item.function.__doc__
-        for item in items
-    }
-    logger.info('Test information including params:{}'.format(json.dumps(test_info, indent=2)))
