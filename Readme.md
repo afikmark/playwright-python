@@ -15,6 +15,10 @@ framework and Python.
 ```sh
   pip install -r requirements.txt
 ```
+4. Install playwright browsers (use elevated permissions if needed):
+```sh
+  playwright install
+```
 
 ## Configuration
 
@@ -34,7 +38,7 @@ By default, tests will run on chromium based browser and headless.
 
 experiment with different args more information can be found [here](https://playwright.dev/python/docs/test-runners#cli-arguments)
 
-2.To generate an Allure report cd to the test directory and use the following command:
+2.To generate an Allure report use the following command:
  ```sh
    allure serve allure-results
  ```
