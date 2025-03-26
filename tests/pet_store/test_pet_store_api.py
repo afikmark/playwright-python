@@ -16,6 +16,7 @@ def test_get_pet_by_id(setup_teardown_pet_store, reporter, add_pet_data):
     reporter.step("Step", "Get a pet by id")
     response = pet_store.get_pet_by_id(pet_id)
     expect(response).to_be_ok()
-
+    reporter.step("Step", "assert pet id")
     assert response.json()["id"] == pet_id
+    reporter.step("Step", "assert pet name")
     assert response.json()["name"] == pet_name

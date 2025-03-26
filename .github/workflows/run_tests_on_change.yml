@@ -26,11 +26,11 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install -r requirements.txt
-    - name: Install playwright browsers
+    - name: Install playwright chromium
       run:  python -m playwright install
     - name: Test with pytest
       env:
         PASSWORD: ${{ secrets.PASSWORD }}
         PET_STORE_API_TOKEN: ${{ secrets.PET_STORE_API_TOKEN }}
       run: |
-        pytest
+        pytest -v
